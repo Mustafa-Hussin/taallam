@@ -2,20 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import '../styles/animations.css';
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #4f46e5;
+  --accent: #f59e0b;
+  --background: #f8fafc;
+  --text: #0f172a;
+  --text-light: #64748b;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-6 py-2 rounded-lg font-medium
+    hover:bg-blue-700 transition-all duration-300 ease-out
+    hover:shadow-lg hover:-translate-y-0.5
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-blue-600 px-6 py-2 rounded-lg font-medium
+    border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300 ease-out
+    hover:shadow-md hover:-translate-y-0.5
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .input-primary {
+    @apply appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg
+    shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500
+    focus:border-transparent transition-all duration-200 ease-out;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300
+    hover:-translate-y-1;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-blue-600 transition-colors duration-200
+    font-medium hover:scale-105 transform;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
